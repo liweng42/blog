@@ -186,4 +186,15 @@ sudo service supervisor restart
 supervisorctl status
 ```
 
+### 更新 Flask 项目代码后，需要重启supervisor
+* 先结束进程
+``` bash
+kill $(ps aux|grep 'gunicorn'|awk '{print $2}')
+service supervisor restart
+```
+* supervisor 检查某个进程状况并杀掉，该命令可能会用到
+``` bash
+supervisorctl status myproject-gunicorn | sed "s/.*[pid ]\([0-9]\+\)\,.*/\1/" | xargs kill -HUP
+```
+
 完！
