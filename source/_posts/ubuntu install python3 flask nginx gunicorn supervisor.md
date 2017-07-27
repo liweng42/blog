@@ -1,7 +1,6 @@
 ---
 title: Ubuntu 16.04 安装 python3 flask nginx gunicorn supervisor
 ---
-## Ubuntu 16.04 安装 python3 flask nginx gunicorn supervisor
 
 ### 更新系统
 ``` bash
