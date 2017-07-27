@@ -15,11 +15,11 @@ vi /etc/shadowsocks.json
 * 将配置COPY进去
 ``` bash
 {
-    "server":"139.162.114.5",
+    "server":"ip",
     "server_port":8388,
     "local_address": "127.0.0.1",
     "local_port":1080,
-    "password":"iloveyou",
+    "password":"password",
     "timeout":300,
     "method":"aes-256-cfb",
     "fast_open": false
