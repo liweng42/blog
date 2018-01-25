@@ -44,7 +44,8 @@ yum -y install vsftpd
     ```
 * 生成虚拟数据库文件
     ```
-    db_load –t hash -T –f /etc/vsftpd/vuser.txt  /etc/vsftpd/vuser.db
+    db_load –t hash -T –f /etc/vsftpd/vuser.txt  /etc/vsftpd/vuser.db  #这个可能不管用
+    db_load -T -t hash -f vusers.txt vuser.db
     ```
 * 配置PAM文件，目的是对客户端进行验证，编辑/etc/pam.d/vsftpd，注释掉所有内容后添加
     ```

@@ -1,0 +1,82 @@
+---
+title: ubuntu 16.04 安装 php7.1
+date: 2018-1-25
+tags: ubuntu php
+---
+ubuntu 16.04 安装 php7.1
+
+### 更新系统
+``` bash
+sudo apt-get update
+```
+
+### 安装英文语言包
+```
+sudo apt-get install -y language-pack-en-base
+locale-gen en_US.UTF-8
+```
+
+### 安装软件包源
+```
+sudo apt-get install software-properties-common
+sudo LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php
+sudo apt-get update
+```
+
+### 安装php7.1
+```
+sudo apt-get -y install php7.1
+sudo apt-get -y install php7.1-mysql
+sudo apt-get install php7.1-fpm
+apt-get install php7.1-curl php7.1-xml php7.1-mcrypt php7.1-json php7.1-gd php7.1-mbstring
+```
+
+### 安装nginx/mysql5.7
+```
+sudo apt-get -y install nginx
+sudo apt-get -y install mysql-server-5.7
+```
+
+### 配置php7.1
+```
+sudo vim /etc/php/7.1/fpm/php.ini  // 将cgi.fix_pathinfo=1这一行去掉注释，将1改为0
+sudo vim /etc/php/7.1/fpm/pool.d/www.conf
+// 修改配置节 listen = /var/run/php7.1-fpm.sock
+sudo service php7.1-fpm restart
+sudo vim /etc/nginx/sites-available/default
+```
+
+### nginx 站点设置
+```
+server {
+        listen 80;
+        root /var/www/myproject;
+        index index.php index.html index.htm;
+
+        # Make site accessible from http://localhost/
+        server_name myproject.com;
+
+        location / {
+                # First attempt to serve request as file, then
+                # as directory, then fall back to displaying a 404.
+                try_files $uri $uri/ /index.php?$query_string;
+        }
+        location ~ \.php$ {
+                try_files $uri /index.php =404;
+                fastcgi_split_path_info ^(.+\.php)(/.+)$;
+                fastcgi_pass unix:/var/run/php7.1-fpm.sock;
+                fastcgi_index index.php;
+                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+                include fastcgi_params;
+        }
+}
+```
+
+### 修改网站目录所有者
+```
+chown -R www-data:www-data myproject
+```
+
+### 注意有些需要写权限的目录要设置响应的权限，重启nginx
+
+Done!
