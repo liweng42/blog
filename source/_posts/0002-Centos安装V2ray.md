@@ -1,7 +1,11 @@
 ---
 title: Centos7.8安装V2ray，科学上网指南
 date: 2020-07-29 15:19:11
-tags:
+categories: 
+- 编码
+tags: 
+- v2ray
+- 科学上网
 ---
 ![](https://img.liweng42.com/upload/image/202007/096a3d9e78f59bc2458410773406c433.jpg)
 ## 前言

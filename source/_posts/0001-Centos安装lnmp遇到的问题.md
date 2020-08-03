@@ -1,7 +1,10 @@
 ---
 title: Centos7.8安装lnmp 1.7遇到的问题
 date: 2020-07-29 13:29:21
-tags:
+categories: 
+- 编码
+tags: 
+- lnmp
 ---
 ## 背景
 Centos 7.8 重新安装后，照例要初始化服务器，安装各种环境。lnmp是必不可少的，直接从[官方lnmp站点](https://lnmp.org)下载安装，具体过程参考lnmp官方站点文档。
