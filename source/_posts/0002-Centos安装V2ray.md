@@ -35,3 +35,7 @@ tags:
 * firewall-cmd --permanent --add-port=80/tcp
 * firewall-cmd --permanent --remove-port=8080/tcp
 * firewall-cmd --reload
+
+### 如果需要命令行上网的话
+* export https_proxy="socks5://127.0.0.1:1081"
+* export http_proxy="socks5://127.0.0.1:1081"

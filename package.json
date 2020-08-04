@@ -12,6 +12,7 @@
     "version": "4.2.1"
   },
   "dependencies": {
+    "again": "0.0.1",
     "hexo": "^4.2.1",
     "hexo-generator-archive": "^1.0.0",
     "hexo-generator-category": "^1.0.0",
@@ -23,5 +24,11 @@
     "hexo-renderer-sass": "^0.4.0",
     "hexo-renderer-stylus": "^1.1.0",
     "hexo-server": "^1.0.0"
+  },
+  "devDependencies": {
+    "minimist": "^1.2.5"
+  },
+  "resolutions": {
+    "minimist": "^1.2.5"
   }
 }
