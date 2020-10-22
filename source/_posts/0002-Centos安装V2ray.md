@@ -37,5 +37,11 @@ tags:
 * firewall-cmd --reload
 
 ### 如果需要命令行上网的话
-* export https_proxy="socks5://127.0.0.1:1081"
-* export http_proxy="socks5://127.0.0.1:1081"
+* export https_proxy="http://127.0.0.1:8118"
+* export http_proxy="http://127.0.0.1:8118"
+
+proxy_on
+proxy_off
+
+### 检测命令行是否已经科学上网
+* curl cip.cc
